@@ -5,25 +5,16 @@ using UnityEngine.UI;
 
  class GameDirector : MonoBehaviour
 {
-    float limit = 1.0f / 6000.0f;
-    GameObject TimeGauge;
-    float time = 1.0f;
-    
-    // Start is called before the first frame update
+    GameObject Time_gauge;
+
     void Start()
     {
-        this.TimeGauge = GameObject.Find("TimeGauge");
+        this.Time_gauge = GameObject.Find("Time_gauge");
     }
 
-    
-    private void Update()
+    public void DecreaseHp()
     {
-        this.TimeGauge.GetComponent<Image>().fillAmount -= limit;
-
-    }
-
-     void DecreaseTime()
-    {
-        this.TimeGauge.GetComponent<Image>().fillAmount -= 1.0f / 600.0f;
+        this.Time_gauge.GetComponent<Image>().fillAmount -= 0.1f;
     }
 }
+

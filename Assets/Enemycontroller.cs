@@ -32,6 +32,9 @@ public class EnemyController : MonoBehaviour
 
         if (d < r1 + r2)
         {
+            GameObject director = GameObject.Find("GameDirector");
+            director.GetComponent<GameDirector>().DecreaseHp();
+
             Destroy(gameObject);
         }
     }
