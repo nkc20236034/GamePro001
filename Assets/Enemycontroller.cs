@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowController : MonoBehaviour
+public class EnemyController : MonoBehaviour
 {
-    GameObject player;
+    GameObject MyChar_0;
 
 
     void Start()
     {
-        this.player = GameObject.Find("player");
+        this.MyChar_0 = GameObject.Find("MyChar_0");
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(-0.1f, 0, 0);
@@ -24,7 +23,7 @@ public class ArrowController : MonoBehaviour
         }
 
         Vector2 p1 = transform.position;
-        Vector2 p2 = this.player.transform.position;
+        Vector2 p2 = this.MyChar_0.transform.position;
         Vector2 dir = p1 - p2;
 
         float d = dir.magnitude;

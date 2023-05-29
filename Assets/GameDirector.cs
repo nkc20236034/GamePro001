@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GameDirector : MonoBehaviour
+ class GameDirector : MonoBehaviour
 {
+    float limit = 1.0f / 6000.0f;
+    GameObject TimeGauge;
+    float time = 1.0f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.TimeGauge = GameObject.Find("TimeGauge");
     }
 
-    // Update is called once per frame
-    void Update()
+    
+    private void Update()
     {
-        
+        this.TimeGauge.GetComponent<Image>().fillAmount -= limit;
+
+    }
+
+     void DecreaseTime()
+    {
+        this.TimeGauge.GetComponent<Image>().fillAmount -= 1.0f / 600.0f;
     }
 }
