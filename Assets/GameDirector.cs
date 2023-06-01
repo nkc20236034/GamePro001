@@ -7,11 +7,17 @@ using UnityEngine.UI;
 {
     float span = 1.0f;
     float delta = 0;
+    float meter = 0;
     GameObject Time_gauge;
-
+    GameObject meterText;
+    
+  
     void Start()
     {
+        Application.targetFrameRate = 60;
         this.Time_gauge = GameObject.Find("Time_gauge");
+        this.meterText = GameObject.Find("meterText");
+
     }
 
     void Update()
@@ -22,7 +28,14 @@ using UnityEngine.UI;
             this.delta = 0;
             this.Time_gauge.GetComponent<Image>().fillAmount -= 0.01f;
         }
+
+        this.meter += Time.deltaTime * 60.0f;
+        this.meterText.GetComponent<Text>().text = this.meter.ToString("F1") + "km";
+        this.delta += Time.deltaTime;
+
+
     }
+
 
     public void DecreaseHp()
     {
